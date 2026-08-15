@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar no Sistema</title>
+</head>
+<body>
+    <h1>Acesso ao Sistema</h1>
+    <--- O formulario envia os dados via POST por motivos de segurança(não expor senha na URL)--->
+    <form methon="POST">
+    <!--Tag OBRIGATORIA  DE SEGURANÇA DO DJANGO-->
+    <!--O  csrf_token gera um codigo unico que impede que sites maliciosos enviem dados forjados-->
+{%csrf_token%}
+<!--Renderiza todo o formulario do python automaticamente(campos de usuarios e senhas)--->
+<!--O'. as_P'diz para o DJANGO envolver cada campo com a tag HTML de paragrafo, para quebrar lista-->
+{{forms.as_P}}
+<button typer="submit"> Entrar</button>
+<!--O {%url "" %}busca a rota pelo (namespace:apelido),evitando que links quebrem se membros-->
+<a href="{% url'membros:cadastro'%}">Ainda não tem conta? cadastre-se </a>
+    </form>
+</body>
+</html>

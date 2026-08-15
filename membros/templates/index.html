@@ -1,46 +1,107 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Domis_Acessórios ✨</title>
+    <title>✨ Domis acessórios ✨</title>
     <style>
-        /* Pequeno CSS interno para organização */
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
         .text-center {
             text-align: center;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
         }
         .produtos-container {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap; /* Permite que os produtos dobrem de linha em telas menores */
+            flex-wrap: wrap;
             justify-content: center;
+            padding: 20px;
         }
         .produto-card {
-            width: 250px;
+            background-color: #fff;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         .produto-card img {
             width: 100%;
-            height: auto;
-            border-radius: 8px; /* Opcional: arredonda um pouco os cantos */
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            background-color: #e0e0e0;
         }
-        .imagem-centro{
-          text-align:center; 
+        .produto-card p {
+            margin: 8px 0;
         }
-        .imagem-centro img{
-            width:400px
+        .produto-card del {
+            color: #999;
+            font-size: 0.9em;
+        }
+        .produto-card ins {
+            text-decoration: none;
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+        figure {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        blockquote {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+        figcaption {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
-
 <body>
-
     <header>
-        <h1 class="text-center">✨💎 Domis_Acessórios 💎✨</h1>
-       <div class="imagem-centro">
-        <img src="logo.jpeg" alt="Logo Domis Acessórios" width:200px>
-    </div>
+        <h1>Domis acessórios✨</h1>
+        <img src="{% static 'img/logo.jpeg' %}" alt="Logo Domis_Acessórios" width="150">
         <nav>
             <ul>
                 <li><a href="#">💍 Anéis</a></li>
@@ -48,71 +109,483 @@
                 <li><a href="#">👜 Bolsas</a></li>
                 <li><a href="#">🎀 Presilhas</a></li>
                 <li><a href="#">💎 Brincos</a></li>
-                <li><a href="#">📞 Contato</a></li>
+                <li><a href="{% url 'membros:home' %}">🏠 Início</a></li>
+                <li><a href="{% url 'membros:listar_membros' %}">👥 Membros</a></li>
+                <li><a href="{% url 'membros:registro' %}">📝 Registrar</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- DESTAQUES -->
         <section>
             <hr>
-            <h2 class="text-center">✨ Destaques da Domis_Acessórios ✨</h2>
+            <h2 class="text-center">✨ Destaques da Domis acessórios ✨</h2>
             <hr>
-
             <div class="produtos-container">
-
                 <div class="produto-card">
-                    <img src="colar.jpeg" alt="Colar Dourado em destaque">
-                    <p><strong>Colar Dourado</strong></p>
-                    <p><del>De R$ 49,90</del><br>Por <ins>R$ 39,90</ins></p>
+                    <img src="{% static 'img/colar1.jpeg' %}" alt="Colar Dourado">
+                    <p><strong>Colar Encanto do Mar</strong></p>
+                    <p><del>R$ 49,90</del><br><ins>R$ 29,90</ins></p>
                 </div>
-
                 <div class="produto-card">
-                    <img src="anel.jpeg" alt="Anel Elegance em destaque">
+                    <img src="{% static 'img/anel2.jpeg' %}" alt="Anel Elegance">
                     <p><strong>Anel Elegance</strong></p>
-                    <p><del>De R$ 29,90</del><br>Por <ins>R$ 19,90</ins></p>
+                    <p><del>R$ 39,90</del><br><ins>R$ 29,90</ins></p>
                 </div>
-
                 <div class="produto-card">
-                    <img src="bolsa.jpeg" alt="Bolsa Feminina em destaque">
+                    <img src="{% static 'img/bolsa.jpeg' %}" alt="Bolsa Feminina">
                     <p><strong>Bolsa Feminina</strong></p>
-                    <p><del>De R$ 129,90</del><br>Por <ins>R$ 99,90</ins></p>
+                    <p><del>R$ 250,90</del><br><ins>R$ 199,90</ins></p>
                 </div>
-
                 <div class="produto-card">
-                    <img src="brinco.jpeg" alt="Brincos Luxo em destaque">
+                    <img src="{% static 'img/brinco.jpeg' %}" alt="Brincos Luxo">
                     <p><strong>Brincos Luxo</strong></p>
-                    <p><del>De R$ 29,90</del><br>Por <ins>R$ 19,90</ins></p>
+                    <p><del>R$ 29,90</del><br><ins>R$ 19,90</ins></p>
                 </div>
-
                 <div class="produto-card">
-                    <img src="presilhas.jpeg" alt="Presilhas Delicadas em destaque">
+                    <img src="{% static 'img/presilha1.jpeg' %}" alt="Presilhas Delicadas">
                     <p><strong>Presilhas Delicadas</strong></p>
-                    <p><del>De R$ 10,90</del><br>Por <ins>R$ 7,90</ins></p>
+                    <p><del>R$ 10,90</del><br><ins>R$ 7,90</ins></p>
                 </div>
-
             </div>
         </section>
 
+        <!-- COLARES -->
         <section>
             <hr>
-            <h2 class="text-center">💬 O que nossos clientes dizem</h2>
+            <h2 class="text-center">📿 Nossos Colares 📿</h2>
             <hr>
-
-            <figure>
-                <blockquote>
-                    "Comprei um colar na <strong>Domis Acessórios</strong> e fiquei encantada com a qualidade. Os produtos são lindos, chegaram rapidamente e superaram minhas expectativas. O atendimento foi excelente e os preços são acessíveis. Recomendo a Domis Acessórios para quem busca elegância, estilo e sofisticação em cada detalhe!"
-                </blockquote>
-                <figcaption class="text-center">— Cliente Satisfeita</figcaption>
-            </figure>
+            <div class="produtos-container">
+                <div class="produto-card">
+                    <img src="{% static 'img/colar1.jpeg' %}" alt="Colar Mundo encantado">
+                    <p><strong>Colar Mundo encantado</strong></p>
+                    <p><del>R$ 59,90</del><br><ins>R$ 49,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/colar2.jpeg' %}" alt="Colar Flores do Campo">
+                    <p><strong>Colar Flor do Campo</strong></p>
+                    <p><del>R$ 49,90</del><br><ins>R$ 39,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/colar3.jpeg' %}" alt="Colar Flor de Cristal">
+                    <p><strong>Colar Flor de Cristal</strong></p>
+                    <p><del>R$ 45,90</del><br><ins>R$ 35,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/colar4.jpeg' %}" alt="Colar de Coração">
+                    <p><strong>Colar de Coração</strong></p>
+                    <p><del>R$ 29,90</del><br><ins>R$ 19,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/colar5.jpeg' %}" alt="Colar coração black">
+                    <p><strong>Colar de black</strong></p>
+                    <p><del>R$ 19,90</del><br><ins>R$ 17,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/colar6.jpeg' %}" alt="Colar Sonho de amor">
+                    <p><strong>Colar Sonho de Amor</strong></p>
+                    <p><del>R$ 15,90</del><br><ins>R$ 14,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/colar7.jpeg' %}" alt="Colar Mar Perfeito">
+                    <p><strong>Colar Mar Perfeito</strong></p>
+                    <p><del>R$ 13,90</del><br><ins>R$ 11,90</ins></p>
+                </div>
+            </div>
         </section>
-    </main>
 
-    <footer class="text-center">
+        <!-- ANÉIS -->
+        <section>
+            <hr>
+            <h2 class="text-center">💍 Nossos Anéis 💍</h2>
+            <hr>
+            <div class="produtos-container">
+                <div class="produto-card">
+                    <img src="{% static 'img/anel1.jpeg' %}" alt="Anel Ouro">
+                    <p><strong>Anel Folha Dourada</strong></p>
+                    <p><del>R$ 39,90</del><br><ins>R$ 29,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/anel2.jpeg' %}" alt="Anel Prata">
+                    <p><strong>Anel Jardim Perfeito</strong></p>
+                    <p><del>R$ 29,90</del><br><ins>R$ 19,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/anel3.jpeg' %}" alt="Anel Dourado">
+                    <p><strong>Anel Safira Azul</strong></p>
+                    <p><del>R$ 34,90</del><br><ins>R$ 24,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/anel4.jpeg' %}" alt="Anel Cristal">
+                    <p><strong>Anel Flor Cristal</strong></p>
+                    <p><del>R$ 44,90</del><br><ins>R$ 34,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/anel5.jpeg' %}" alt="Anel Coração">
+                    <p><strong>Anel Flores com Tom Royal</strong></p>
+                    <p><del>R$ 32,90</del><br><ins>R$ 22,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/anel6.jpeg' %}" alt="Anel Pedra">
+                    <p><strong>Anel da Paz</strong></p>
+                    <p><del>R$ 49,90</del><br><ins>R$ 37,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/anel7.jpeg' %}" alt="Anel Elegance">
+                    <p><strong>Anel Rubi</strong></p>
+                    <p><del>R$ 29,90</del><br><ins>R$ 19,90</ins></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOLSAS -->
+        <section>
+            <hr>
+            <h2 class="text-center">👜 Nossas Bolsas 👜</h2>
+            <hr>
+            <div class="produtos-container">
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa1.jpeg' %}" alt="Bolsa Feminina">
+                    <p><strong>Bolsa Perola</strong></p>
+                    <p><del>R$ 129,90</del><br><ins>R$ 99,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa2.jpeg' %}" alt="Bolsa de Couro">
+                    <p><strong>Bolsa Caramelo chic</strong></p>
+                    <p><del>R$ 159,90</del><br><ins>R$ 119,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa3.jpeg' %}" alt="Bolsa Transparente">
+                    <p><strong>Bolsa black & white</strong></p>
+                    <p><del>R$ 89,90</del><br><ins>R$ 69,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa4.jpeg' %}" alt="Bolsa Charme">
+                    <p><strong>Bolsa Charme</strong></p>
+                    <p><del>R$ 79,90</del><br><ins>R$ 59,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa5.jpeg' %}" alt="Bolsa Mochila">
+                    <p><strong>Bolsa La Preferida</strong></p>
+                    <p><del>R$ 149,90</del><br><ins>R$ 109,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa6.jpeg' %}" alt="Bolsa de Mão">
+                    <p><strong>Bolsa white Elegance</strong></p>
+                    <p><del>R$ 99,90</del><br><ins>R$ 74,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/bolsa7.jpeg' %}" alt="Bolsa Pochete">
+                    <p><strong>Bolsa Aurora</strong></p>
+                    <p><del>R$ 69,90</del><br><ins>R$ 49,90</ins></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRINCOS -->
+        <section>
+            <hr>
+            <h2 class="text-center">💎 Nossos Brincos 💎</h2>
+            <hr>
+            <div class="produtos-container">
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco1.jpeg' %}" alt="Brinco Luxo">
+                    <p><strong>Brinco Ring Antero</strong></p>
+                    <p><del>R$ 29,90</del><br><ins>R$ 19,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco2.jpeg' %}" alt="Brinco Ouro">
+                    <p><strong>Brinco Layssa</strong></p>
+                    <p><del>R$ 24,90</del><br><ins>R$ 17,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco3.jpeg' %}" alt="Brinco Prata">
+                    <p><strong>Brinco Memel</strong></p>
+                    <p><del>R$ 19,90</del><br><ins>R$ 14,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco4.jpeg' %}" alt="Brinco Pérola">
+                    <p><strong>Brinco lovely Gabi</strong></p>
+                    <p><del>R$ 34,90</del><br><ins>R$ 24,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco5.jpeg' %}" alt="Brinco Argola">
+                    <p><strong>Brinco clean soft Manu</strong></p>
+                    <p><del>R$ 22,90</del><br><ins>R$ 16,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco6.jpeg' %}" alt="Brinco Cristal">
+                    <p><strong>Brinco perolas do emmanuel</strong></p>
+                    <p><del>R$ 39,90</del><br><ins>R$ 29,90</ins></p>
+                </div>
+                <div class="produto-card">
+                    <img src="{% static 'img/brinco7.jpeg' %}" alt="Brinco Folheado">
+                    <p><strong>Brinco FlorIan</strong></p>
+                    <p><del>R$ 27,90</del><br><ins>R$ 19,90</ins></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRESILHAS -->
+        <section>
+            <hr>
+            <h2 class="text-center">🎀 Nossas Presilhas 🎀</h2>
+            <hr>
+            <div class="produtos-container">
+              <div class="produtos-container">
+        
+        <!-- Presilha 1 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha1.jpeg' %}" alt="Presilha Azul">
+            <p><strong>Presilha Azul</strong></p>
+            <p><del>R$ 10,90</del><br><ins>R$ 7,00</ins></p>
+        </div>
+
+        <!-- Presilha 2 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha2.jpeg' %}" alt="Presilha Rosa">
+            <p><strong>Presilha Rosé</strong></p>
+            <p><del>R$ 10,90</del><br><ins>R$ 7,20</ins></p>
+        </div>
+
+        <!-- Presilha 3 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha3.jpeg' %}"alt="Presilha Dourada">
+            <p><strong>Presilha Verde Dourado</strong></p>
+            <p><del>R$ 12,90</del><br><ins>R$ 8,90</ins></p>
+        </div>
+
+        <!-- Presilha 4 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha4.jpeg' %}" alt="Presilha Prata">
+            <p><strong>Presilha Rosa pink</strong></p>
+            <p><del>R$ 11,90</del><br><ins>R$ 7,50</ins></p>
+        </div>
+
+        <!-- Presilha 5 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha5.jpeg' %}"alt="Presilha Verde">
+            <p><strong>Presilha Flores</strong></p>
+            <p><del>R$ 10,90</del><br><ins>R$ 6,90</ins></p>
+        </div>
+
+        <!-- Presilha 6 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha6.jpeg' %}"alt="Presilha Vermelha">
+            <p><strong>Presilha Pink</strong></p>
+            <p><del>R$ 11,90</del><br><ins>R$ 7,30</ins></p>
+        </div>
+
+        <!-- Presilha 7 -->
+        <div class="produto-card">
+            <img src="{% static 'img/presilha7.jpeg' %}"alt="Presilha Dourada Luxo">
+            <p><strong>Presilha Dourada Luxo</strong></p>
+            <p><del>R$ 14,90</del><br><ins>R$ 9,90</ins></p>
+        </div>  
+
+        
+
+    </div>
+</section>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTO -->
+        <section>
+            <hr>
+            <h2 class="text-center">💬 O que nossos clientes dizem:</h2>
+            <hr>
+           <section>
+            <!-- SEÇÃO DE DEPOIMENTOS SIMPLES -->
+    <!-- TEXTO DE INTRODUÇÃO -->
+    <div style="text-align: center; max-width: 700px; margin: 30px auto; padding: 20px; 
+                background: #f8f8f8; border-radius: 10px; border-left: 5px solid #ffd700;">
+        <p style="font-size: 1.1em; color: #555; line-height: 1.8;">
+            💕 Cada sorriso, cada elogio e cada estrela que recebemos nos enchem de orgulho e gratidão. 
+            Aqui você encontra a opinião sincera de quem já experimentou a magia da 
+            <strong style="color: #d32f2f;">Domis_Acessórios</strong>.
+        </p>
+        <p style="font-size: 1em; color: #888; margin-top: 10px;">
+            👇 Leia os depoimentos abaixo e se inspire!
+        </p>
+    </div>
+
+    <!-- COMENTÁRIO PRINCIPAL (seu comentário em destaque) -->
+    <figure style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                   color: white; 
+                   padding: 40px; 
+                   border-radius: 15px; 
+                   max-width: 900px; 
+                   margin: 20px auto;
+                   box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+        <blockquote style="font-size: 1.3em; 
+                          line-height: 1.8; 
+                          color: white; 
+                          font-style: italic;
+                          margin: 0;">
+            "Comprei um colar na <strong style="color: #ffd700;">Domis_Acessórios</strong> e fiquei encantada com a qualidade. 
+            Os produtos são lindos, chegaram rapidamente e superaram minhas expectativas. 
+            O atendimento foi excelente e os preços são acessíveis. 
+            Recomendo a Domis Acessórios para quem busca elegância, estilo e sofisticação em cada detalhe!"
+        </blockquote>
+        <figcaption style="text-align: center; 
+                          margin-top: 20px; 
+                          font-size: 1.1em; 
+                          color: #ffd700;">
+            ⭐⭐⭐⭐⭐ — Cliente Satisfeita
+        </figcaption>
+        <div style="text-align: center; margin-top: 10px; color: rgba(255,255,255,0.7); font-size: 0.9em;">
+            📅 Depoimento em Destaque • Dezembro 2025
+        </div>
+    </figure>
+
+    <h3 style="text-align: center; margin: 40px 0 20px 0; color: #555; font-size: 1.5em;">
+        📢 Veja mais depoimentos
+    </h3>
+    <p style="text-align: center; color: #888; margin-bottom: 30px;">
+        ⭐ Clientes reais, histórias reais, satisfação garantida!
+    </p>
+
+    <!-- ========================================== -->
+    <!-- CARROSSEL SIMPLES COM 5 SLIDES -->
+    <!-- ========================================== -->
+    <style>
+        .carousel-simples {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .carousel-simples .slide {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .carousel-simples .slide:target {
+            display: block;
+        }
+
+        /* Mostrar o primeiro slide por padrão */
+        .carousel-simples .slide:first-child {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .carousel-simples .stars {
+            color: #ffc107;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .carousel-simples .comment {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .carousel-simples .client-name {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .carousel-simples .client-date {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .carousel-simples .nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .carousel-simples .nav a {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #ddd;
+            color: #555;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .carousel-simples .nav a:hover {
+            background: #d32f2f;
+            color: white;
+        }
+    </style>
+
+    <div class="carousel-simples">
+
+        <!-- SLIDE 1 -->
+        <div class="slide" id="c1">
+            <div class="stars">★★★★★</div>
+            <p class="comment">"Amei o colar que comprei! Super delicado e combina com tudo. Chegou antes do prazo e a embalagem era linda."</p>
+            <p class="client-name">— Isabella Monteiro</p>
+            <p class="client-date">⭐ Cliente desde 2025</p>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide" id="c2">
+            <div class="stars">★★★★★</div>
+            <p class="comment">"Os brincos são maravilhosos! Qualidade excelente e o preço é super justo. Atendimento rápido e atencioso."</p>
+            <p class="client-name">— Rafaela Santos</p>
+            <p class="client-date">⭐ Cliente desde 2024</p>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide" id="c3">
+            <div class="stars">★★★★☆</div>
+            <p class="comment">"A bolsa que comprei é linda e muito espaçosa. Só tirei uma estrela porque demorou um pouco para chegar."</p>
+            <p class="client-name">— Mariana Oliveira</p>
+            <p class="client-date">⭐ Cliente desde 2025</p>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide" id="c4">
+            <div class="stars">★★★★★</div>
+            <p class="comment">"Melhor loja de acessórios! Já fiz várias compras e sempre fico satisfeita. Os produtos são de alta qualidade."</p>
+            <p class="client-name">— Juliana Costa</p>
+            <p class="client-date">⭐ Cliente desde 2023</p>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="slide" id="c5">
+            <div class="stars">★★★★★</div>
+            <p class="comment">"Comprei uma presilha para minha filha e ela amou! O produto é lindo, bem feito e chegou rapidinho."</p>
+            <p class="client-name">— Patrícia Lima</p>
+            <p class="client-date">⭐ Cliente desde 2025</p>
+        </div>
+
+        <!-- NAVEGAÇÃO -->
+        <div class="nav">
+            <a href="#c1">1</a>
+            <a href="#c2">2</a>
+            <a href="#c3">3</a>
+            <a href="#c4">4</a>
+            <a href="#c5">5</a>
+        </div>
+    </div>
+</section>
         <hr>
         <p>&copy; 2026 Domis Acessórios - Todos os direitos reservados.</p>
     </footer>
-
 </body>
-
 </html>
